@@ -1,0 +1,16 @@
+<!-- Starts up everything needed to run the example manipulator/streamer nodes. -->
+<launch>
+  
+  <node name="logo" pkg="param_communication" type="logo" output="screen" />
+
+  <node pkg="param_communication" type="streamer" name="streamer"/>
+
+  <!-- The manipulator node subscribes to the custom message that streamer is publishing. -->
+  <node pkg="param_communication" type="manipulator" name="manipulator">
+    <param name="power" value="2"/>
+  </node>
+  
+  <rosparam file="$(find param_communication)/cfg/static_params.yaml" command="load" />
+  <include file="$(find param_communication)/launch/tools.launch"/>
+  	
+</launch>

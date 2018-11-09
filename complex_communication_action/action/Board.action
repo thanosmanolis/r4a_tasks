@@ -1,0 +1,8 @@
+# Goal -> board after move
+char[9] board
+---
+# Result
+int32 x
+---
+# Feedback
+int32 x	

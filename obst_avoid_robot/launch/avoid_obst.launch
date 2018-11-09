@@ -1,0 +1,8 @@
+<launch>
+  
+  <node name="logo" pkg="obst_avoid_robot" type="logo" output="screen" />
+  <node pkg="obst_avoid_robot" type="avoid_obstacles" name="avoid_obstacles" />
+
+  <include file="$(find stdr_launchers)/launch/server_with_map_and_gui_plus_robot.launch" />
+  
+</launch>

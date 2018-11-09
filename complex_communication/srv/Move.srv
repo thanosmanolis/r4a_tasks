@@ -1,0 +1,3 @@
+char[9] old_board
+---
+char[9] new_board

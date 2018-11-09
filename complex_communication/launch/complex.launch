@@ -1,0 +1,10 @@
+<launch>
+	<node name="logo" pkg="complex_communication"
+		type="logo" output="screen" />
+	<node name="player_1" pkg="complex_communication"
+		type="player_1" output="screen" />
+	<node name="player_2" pkg="complex_communication"
+		type="player_2" output="screen" />
+	<node name="server" pkg="complex_communication"
+		type="server" output="screen" />
+</launch>
