@@ -4,13 +4,12 @@ project(obst_avoid_robot)
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
 
-## Find catkin macros and libraries
-## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
-## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   geometry_msgs
   sensor_msgs
+  tf
+  visualization_msgs
 )
 
 include_directories(
@@ -23,9 +22,10 @@ catkin_package(
     include
   CATKIN_DEPENDS
     roscpp
-
     geometry_msgs
     sensor_msgs
+    visualization_msgs
+    tf
 )
 
 ######################### Executables #########################
@@ -46,4 +46,19 @@ target_link_libraries(avoid_obstacles
 )
 add_dependencies(avoid_obstacles 
   ${catkin_EXPORTED_TARGETS}
+)
+
+add_executable(robot_tf_listener
+  src/nodes/robot_tf_listener_node.cpp
+  src/robot_tf_listener.cpp
+)
+target_link_libraries(robot_tf_listener
+  ${catkin_LIBRARIES}
+)
+
+add_executable(basic_shapes 
+  src/nodes/basic_shapes.cpp
+)
+target_link_libraries(basic_shapes 
+  ${catkin_LIBRARIES}
 )
