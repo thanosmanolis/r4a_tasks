@@ -56,9 +56,9 @@ target_link_libraries(robot_tf_listener
   ${catkin_LIBRARIES}
 )
 
-add_executable(basic_shapes 
-  src/nodes/basic_shapes.cpp
+add_executable(bounding_box 
+  src/nodes/bounding_box.cpp
 )
-target_link_libraries(basic_shapes 
+target_link_libraries(bounding_box 
   ${catkin_LIBRARIES}
 )
